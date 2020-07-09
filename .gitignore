@@ -1,4 +1,9 @@
-# Binaries for programs and plugins
+.idea/
+.DS_Store
+
+runtime/*
+!runtime/qrcode/bg.jpg
+!runtime/fonts# Binaries for programs and plugins
 *.exe
 *.exe~
 *.dll
@@ -13,9 +18,3 @@
 
 # Dependency directories (remove the comment below to include it)
 # vendor/
-.idea/
-.DS_Store
-
-runtime/*
-!runtime/qrcode/bg.jpg
-!runtime/fonts
