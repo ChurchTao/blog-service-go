@@ -5,10 +5,10 @@ import (
 
 	"github.com/gin-gonic/gin"
 
-	"github.com/EDDYCJY/go-gin-example/pkg/app"
-	"github.com/EDDYCJY/go-gin-example/pkg/e"
-	"github.com/EDDYCJY/go-gin-example/pkg/logging"
-	"github.com/EDDYCJY/go-gin-example/pkg/upload"
+	"github/ChurchTao/blog-service-go/pkg/app"
+	"github/ChurchTao/blog-service-go/pkg/e"
+	"github/ChurchTao/blog-service-go/pkg/logging"
+	"github/ChurchTao/blog-service-go/pkg/upload"
 )
 
 // @Summary Import Image

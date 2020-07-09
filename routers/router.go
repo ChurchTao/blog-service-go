@@ -5,16 +5,16 @@ import (
 
 	"github.com/gin-gonic/gin"
 
-	_ "github.com/EDDYCJY/go-gin-example/docs"
+	_ "github/ChurchTao/blog-service-go/docs"
 	"github.com/swaggo/gin-swagger"
 	"github.com/swaggo/gin-swagger/swaggerFiles"
 
-	"github.com/EDDYCJY/go-gin-example/middleware/jwt"
-	"github.com/EDDYCJY/go-gin-example/pkg/export"
-	"github.com/EDDYCJY/go-gin-example/pkg/qrcode"
-	"github.com/EDDYCJY/go-gin-example/pkg/upload"
-	"github.com/EDDYCJY/go-gin-example/routers/api"
-	"github.com/EDDYCJY/go-gin-example/routers/api/v1"
+	"github/ChurchTao/blog-service-go/middleware/jwt"
+	"github/ChurchTao/blog-service-go/pkg/export"
+	"github/ChurchTao/blog-service-go/pkg/qrcode"
+	"github/ChurchTao/blog-service-go/pkg/upload"
+	"github/ChurchTao/blog-service-go/routers/api"
+	"github/ChurchTao/blog-service-go/routers/api/v1"
 )
 
 // InitRouter initialize routing information

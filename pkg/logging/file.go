@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/EDDYCJY/go-gin-example/pkg/setting"
+	"github/ChurchTao/blog-service-go/pkg/setting"
 )
 
 // getLogFilePath get the log file save path
