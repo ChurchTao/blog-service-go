@@ -2,17 +2,15 @@ package main
 
 import (
 	"fmt"
-	"github.com/fvbock/endless"
 	"github.com/gin-gonic/gin"
-	"log"
-	"syscall"
-
 	"github/ChurchTao/blog-service-go/models"
 	"github/ChurchTao/blog-service-go/pkg/gredis"
 	"github/ChurchTao/blog-service-go/pkg/logging"
 	"github/ChurchTao/blog-service-go/pkg/setting"
 	"github/ChurchTao/blog-service-go/pkg/util"
 	"github/ChurchTao/blog-service-go/routers"
+	"log"
+	"net/http"
 )
 
 func init() {
@@ -38,29 +36,29 @@ func main() {
 	endPoint := fmt.Sprintf(":%d", setting.ServerSetting.HttpPort)
 	maxHeaderBytes := 1 << 20
 
-	//server := &http.Server{
-	//	Addr:           endPoint,
-	//	Handler:        routersInit,
-	//	ReadTimeout:    readTimeout,
-	//	WriteTimeout:   writeTimeout,
-	//	MaxHeaderBytes: maxHeaderBytes,
+	server := &http.Server{
+		Addr:           endPoint,
+		Handler:        routersInit,
+		ReadTimeout:    readTimeout,
+		WriteTimeout:   writeTimeout,
+		MaxHeaderBytes: maxHeaderBytes,
+	}
+
+	log.Printf("[info] start http server listening %s", endPoint)
+
+	server.ListenAndServe()
+
+	//// If you want Graceful Restart, you need a Unix system and download github.com/fvbock/endless
+	//endless.DefaultReadTimeOut = readTimeout
+	//endless.DefaultWriteTimeOut = writeTimeout
+	//endless.DefaultMaxHeaderBytes = maxHeaderBytes
+	//server := endless.NewServer(endPoint, routersInit)
+	//server.BeforeBegin = func(add string) {
+	//	log.Printf("Actual pid is %d", syscall.Getpid())
 	//}
 	//
-	//log.Printf("[info] start http server listening %s", endPoint)
-	//
-	//server.ListenAndServe()
-
-	// If you want Graceful Restart, you need a Unix system and download github.com/fvbock/endless
-	endless.DefaultReadTimeOut = readTimeout
-	endless.DefaultWriteTimeOut = writeTimeout
-	endless.DefaultMaxHeaderBytes = maxHeaderBytes
-	server := endless.NewServer(endPoint, routersInit)
-	server.BeforeBegin = func(add string) {
-		log.Printf("Actual pid is %d", syscall.Getpid())
-	}
-
-	err := server.ListenAndServe()
-	if err != nil {
-		log.Printf("Server err: %v", err)
-	}
+	//err := server.ListenAndServe()
+	//if err != nil {
+	//	log.Printf("Server err: %v", err)
+	//}
 }

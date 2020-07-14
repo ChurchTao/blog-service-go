@@ -60,6 +60,11 @@ func InitRouter() *gin.Engine {
 		//生成文章海报
 		apiv1.POST("/articles/poster/generate", v1.GenerateArticlePoster)
 	}
+	//r.Use(jwt.JWT()).GET("/ping", func(context *gin.Context) {
+	//	context.JSON(200,gin.H{
+	//		"message":"pong",
+	//	})
+	//})
 
 	return r
 }
